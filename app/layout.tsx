@@ -10,9 +10,10 @@ const prompt = Prompt({
 });
 
 export const metadata: Metadata = {
-  title: "เครื่องคำนวณสินเชื่อ",
+  title: "Loan Calculator",
   description:
     "พัฒนาเว็บแอปพลิเคชันคำนวณค่างวดผ่อนชำระรายเดือน พร้อมแสดงตารางการผ่อนชำระ (Amortization Schedule) แบบละเอียดทุกงวด",
+  keywords: ["คำนวณสินเชื่อ", "ค่างวดสินเชื่อ", "ค่างวดผ่อนชำระ", "ค่างวดรายเดือน"],
 };
 
 export default function RootLayout({

@@ -10,11 +10,7 @@ import AmortizationTable from "@/components/AmortizationTable";
 import {
   ArrowLeft,
   Sparkles,
-  Layers,
   Calculator,
-  Building2,
-  Car,
-  User,
 } from "lucide-react";
 
 // ค่าเริ่มต้นสำหรับการคำนวณ (ตัวอย่างสินเชื่อบ้าน 1,000,000 บาท ดอกเบี้ย 5% ผ่อน 30 ปี)
