@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8fafc;
-  --foreground: #0f172a;
+  --background: #09090b;
+  --foreground: #f4f4f5;
 }
 
 @theme inline {
@@ -12,9 +12,9 @@
   --font-mono: var(--font-geist-mono), monospace;
 }
 
-/* บังคับโทนสว่างตามความต้องการของผู้ใช้ (Clean Light Financial Theme) */
+/* ธีมสีม่วง-ดำ (Purple & Black Dark Fintech Theme) */
 html {
-  color-scheme: light;
+  color-scheme: dark;
 }
 
 body {
@@ -24,22 +24,23 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-/* Custom smooth scrollbar for table */
+/* Custom smooth scrollbar for purple-black theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f1f5f9;
+  background: #18181b;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #cbd5e1;
+  background: #27272a;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #94a3b8;
+  background: #a855f7;
 }
+

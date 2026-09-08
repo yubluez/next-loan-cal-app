@@ -1,21 +1,16 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Prompt } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const prompt = Prompt({
+  subsets: ["thai"],
+  weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
 export const metadata: Metadata = {
-  title: "เครื่องคำนวณสินเชื่อ/ผ่อนชำระ (next-loan-cal-app)",
+  title: "เครื่องคำนวณสินเชื่อ",
   description:
     "พัฒนาเว็บแอปพลิเคชันคำนวณค่างวดผ่อนชำระรายเดือน พร้อมแสดงตารางการผ่อนชำระ (Amortization Schedule) แบบละเอียดทุกงวด",
 };
@@ -28,9 +23,9 @@ export default function RootLayout({
   return (
     <html
       lang="th"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${prompt.className}`}
     >
-      <body className="min-h-full flex flex-col bg-slate-50 text-slate-900 selection:bg-emerald-100 selection:text-emerald-900">
+      <body className="min-h-full flex flex-col bg-zinc-950 text-zinc-100 selection:bg-purple-500 selection:text-white">
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />

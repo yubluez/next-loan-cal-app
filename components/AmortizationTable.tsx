@@ -112,12 +112,12 @@ export default function AmortizationTable({
 
   if (schedule.length === 0) {
     return (
-      <div className="rounded-2xl border border-slate-200 bg-white p-8 text-center shadow-sm">
-        <Table className="mx-auto h-12 w-12 text-slate-300" />
-        <h3 className="mt-3 text-base font-semibold text-slate-800">
+      <div className="rounded-2xl border border-zinc-800 bg-zinc-900/90 p-8 text-center shadow-xl">
+        <Table className="mx-auto h-12 w-12 text-zinc-600" />
+        <h3 className="mt-3 text-base font-semibold text-white">
           ยังไม่มีข้อมูลตารางการผ่อนชำระ
         </h3>
-        <p className="mt-1 text-xs text-slate-500">
+        <p className="mt-1 text-xs text-zinc-400">
           กรุณาระบุยอดเงินกู้ อัตราดอกเบี้ย และระยะเวลาผ่อนชำระในแบบฟอร์มด้านบน
         </p>
       </div>
@@ -125,17 +125,17 @@ export default function AmortizationTable({
   }
 
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8">
+    <div className="rounded-2xl border border-zinc-800 bg-zinc-900/90 p-6 shadow-xl sm:p-8">
       {/* Title & Actions Bar */}
-      <div className="flex flex-col gap-4 border-b border-slate-200 pb-5 md:flex-row md:items-center md:justify-between">
+      <div className="flex flex-col gap-4 border-b border-zinc-800 pb-5 md:flex-row md:items-center md:justify-between">
         <div>
-          <h3 className="text-lg font-bold tracking-tight text-slate-900 flex items-center gap-2">
-            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-100 text-emerald-700">
+          <h3 className="text-lg font-bold tracking-tight text-white flex items-center gap-2">
+            <span className="flex h-7 w-7 items-center justify-center rounded-lg bg-purple-600 text-white font-bold">
               <Table className="h-4 w-4" />
             </span>
             ตารางการผ่อนชำระ (Amortization Schedule)
           </h3>
-          <p className="mt-1 text-xs text-slate-500">
+          <p className="mt-1 text-xs text-zinc-400">
             แสดงรายละเอียดการตัดเงินต้น ดอกเบี้ย และยอดหนี้คงเหลือครบถ้วนทุกงวด
             (รวม {schedule.length} งวด)
           </p>
@@ -146,7 +146,7 @@ export default function AmortizationTable({
           <button
             type="button"
             onClick={handleExportCSV}
-            className="inline-flex items-center gap-1.5 rounded-xl border border-emerald-600 bg-emerald-50 px-3.5 py-2 text-xs font-semibold text-emerald-700 hover:bg-emerald-100 transition-colors shadow-xs"
+            className="inline-flex items-center gap-1.5 rounded-xl border border-purple-600 bg-purple-600 px-3.5 py-2 text-xs font-bold text-white hover:bg-purple-500 transition-colors shadow-md shadow-purple-600/25"
           >
             <Download className="h-4 w-4" />
             <span>ส่งออกเป็น CSV (Excel)</span>
@@ -158,8 +158,8 @@ export default function AmortizationTable({
       <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {/* Year Filter */}
         <div>
-          <label className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-slate-700">
-            <Filter className="h-3.5 w-3.5 text-slate-400" />
+          <label className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-zinc-300">
+            <Filter className="h-3.5 w-3.5 text-purple-400" />
             <span>กรองตามปีที่ผ่อนชำระ:</span>
           </label>
           <select
@@ -169,7 +169,7 @@ export default function AmortizationTable({
                 e.target.value === "all" ? "all" : Number(e.target.value)
               )
             }
-            className="w-full rounded-xl border border-slate-300 bg-slate-50/70 px-3 py-2 text-xs font-medium text-slate-800 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+            className="w-full rounded-xl border border-zinc-700 bg-zinc-950/80 px-3 py-2 text-xs font-medium text-zinc-200 focus:border-purple-500 focus:bg-zinc-950 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
           >
             <option value="all">แสดงทั้งหมด ({totalYears} ปี / {schedule.length} งวด)</option>
             {Array.from({ length: totalYears }, (_, i) => i + 1).map((yr) => (
@@ -182,8 +182,8 @@ export default function AmortizationTable({
 
         {/* Search Specific Installment */}
         <div>
-          <label className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-slate-700">
-            <Search className="h-3.5 w-3.5 text-slate-400" />
+          <label className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-zinc-300">
+            <Search className="h-3.5 w-3.5 text-purple-400" />
             <span>ค้นหางวดที่เจาะจง:</span>
           </label>
           <div className="relative">
@@ -194,13 +194,13 @@ export default function AmortizationTable({
               value={searchQuery}
               onChange={(e) => handleSearchChange(e.target.value)}
               placeholder="ใส่งวดที่ต้องการค้นหา เช่น 24"
-              className="w-full rounded-xl border border-slate-300 bg-slate-50/70 py-2 pl-3 pr-8 text-xs text-slate-800 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+              className="w-full rounded-xl border border-zinc-700 bg-zinc-950/80 py-2 pl-3 pr-8 text-xs text-zinc-200 placeholder:text-zinc-600 focus:border-purple-500 focus:bg-zinc-950 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
             />
             {searchQuery && (
               <button
                 type="button"
                 onClick={() => handleSearchChange("")}
-                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-slate-400 hover:text-slate-600"
+                className="absolute right-2.5 top-1/2 -translate-y-1/2 text-xs text-zinc-400 hover:text-white"
               >
                 ✕
               </button>
@@ -210,8 +210,8 @@ export default function AmortizationTable({
 
         {/* Page size selector */}
         <div>
-          <label className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-slate-700">
-            <FileSpreadsheet className="h-3.5 w-3.5 text-slate-400" />
+          <label className="mb-1.5 flex items-center gap-1 text-xs font-semibold text-zinc-300">
+            <FileSpreadsheet className="h-3.5 w-3.5 text-purple-400" />
             <span>จำนวนรายการต่อหน้า:</span>
           </label>
           <select
@@ -220,7 +220,7 @@ export default function AmortizationTable({
               setPageSize(Number(e.target.value));
               setCurrentPage(1);
             }}
-            className="w-full rounded-xl border border-slate-300 bg-slate-50/70 px-3 py-2 text-xs font-medium text-slate-800 focus:border-emerald-500 focus:bg-white focus:outline-none focus:ring-2 focus:ring-emerald-500/20"
+            className="w-full rounded-xl border border-zinc-700 bg-zinc-950/80 px-3 py-2 text-xs font-medium text-zinc-200 focus:border-purple-500 focus:bg-zinc-950 focus:outline-none focus:ring-2 focus:ring-purple-500/20"
           >
             <option value={12}>12 งวด (1 ปี)</option>
             <option value={24}>24 งวด (2 ปี)</option>
@@ -232,10 +232,10 @@ export default function AmortizationTable({
       </div>
 
       {/* Table Container */}
-      <div className="mt-5 overflow-hidden rounded-xl border border-slate-200">
+      <div className="mt-5 overflow-hidden rounded-xl border border-zinc-800 bg-zinc-950">
         <div className="max-h-[520px] overflow-x-auto overflow-y-auto">
           <table className="w-full border-collapse text-left text-xs">
-            <thead className="sticky top-0 z-20 bg-slate-100 text-slate-700 shadow-xs border-b border-slate-200">
+            <thead className="sticky top-0 z-20 bg-zinc-950 text-zinc-300 shadow-xs border-b border-zinc-800">
               <tr>
                 <th className="px-4 py-3.5 font-bold text-center w-16">
                   งวดที่
@@ -243,38 +243,38 @@ export default function AmortizationTable({
                 <th className="px-4 py-3.5 font-bold text-right">
                   ค่างวด (บาท)
                 </th>
-                <th className="px-4 py-3.5 font-bold text-right text-emerald-700">
+                <th className="px-4 py-3.5 font-bold text-right text-purple-400">
                   เงินต้น (บาท)
                 </th>
-                <th className="px-4 py-3.5 font-bold text-right text-amber-700">
+                <th className="px-4 py-3.5 font-bold text-right text-pink-400">
                   ดอกเบี้ย (บาท)
                 </th>
-                <th className="px-4 py-3.5 font-bold text-right">
+                <th className="px-4 py-3.5 font-bold text-right text-zinc-200">
                   เงินต้นคงเหลือ (บาท)
                 </th>
               </tr>
             </thead>
-            <tbody className="divide-y divide-slate-100 bg-white">
+            <tbody className="divide-y divide-zinc-800/80 bg-zinc-900/40">
               {paginatedSchedule.map((row) => (
                 <tr
                   key={row.installmentNo}
-                  className="transition-colors hover:bg-emerald-50/40"
+                  className="transition-colors hover:bg-purple-500/10"
                 >
-                  <td className="px-4 py-2.5 text-center font-mono font-semibold text-slate-600 bg-slate-50/50">
+                  <td className="px-4 py-2.5 text-center font-mono font-semibold text-zinc-400 bg-zinc-950/50">
                     {row.installmentNo}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono font-bold text-slate-900">
+                  <td className="px-4 py-2.5 text-right font-mono font-bold text-white">
                     ฿{formatCurrency(row.payment)}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono font-semibold text-emerald-600">
+                  <td className="px-4 py-2.5 text-right font-mono font-semibold text-purple-400">
                     ฿{formatCurrency(row.principalPaid)}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono font-medium text-amber-600">
+                  <td className="px-4 py-2.5 text-right font-mono font-medium text-pink-400">
                     ฿{formatCurrency(row.interestPaid)}
                   </td>
-                  <td className="px-4 py-2.5 text-right font-mono font-bold text-slate-800">
+                  <td className="px-4 py-2.5 text-right font-mono font-bold text-zinc-200">
                     {row.remainingBalance === 0 ? (
-                      <span className="inline-flex items-center rounded-md bg-emerald-100 px-2 py-0.5 text-xs font-bold text-emerald-800">
+                      <span className="inline-flex items-center rounded-md bg-purple-500/20 border border-purple-500/40 px-2 py-0.5 text-xs font-bold text-purple-300">
                         0.00 (ชำระหมด)
                       </span>
                     ) : (
@@ -290,18 +290,18 @@ export default function AmortizationTable({
 
       {/* Pagination Controls */}
       {pageSize !== -1 && totalPages > 1 && (
-        <div className="mt-4 flex flex-col items-center justify-between gap-3 border-t border-slate-100 pt-4 text-xs text-slate-500 sm:flex-row">
+        <div className="mt-4 flex flex-col items-center justify-between gap-3 border-t border-zinc-800 pt-4 text-xs text-zinc-400 sm:flex-row">
           <div>
             แสดงงวดที่{" "}
-            <span className="font-semibold text-slate-800">
+            <span className="font-semibold text-white">
               {(currentPage - 1) * pageSize + 1}
             </span>{" "}
             -{" "}
-            <span className="font-semibold text-slate-800">
+            <span className="font-semibold text-white">
               {Math.min(currentPage * pageSize, filteredSchedule.length)}
             </span>{" "}
             จากทั้งหมด{" "}
-            <span className="font-semibold text-slate-800">
+            <span className="font-semibold text-white">
               {filteredSchedule.length}
             </span>{" "}
             งวด
@@ -312,13 +312,13 @@ export default function AmortizationTable({
               type="button"
               onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
               disabled={currentPage === 1}
-              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1 rounded-lg border border-zinc-700 px-2.5 py-1.5 font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               <ChevronLeft className="h-3.5 w-3.5" />
               <span>ก่อนหน้า</span>
             </button>
 
-            <span className="px-2 font-mono font-medium text-slate-700">
+            <span className="px-2 font-mono font-medium text-zinc-300">
               หน้า {currentPage} / {totalPages}
             </span>
 
@@ -326,7 +326,7 @@ export default function AmortizationTable({
               type="button"
               onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
               disabled={currentPage === totalPages}
-              className="inline-flex items-center gap-1 rounded-lg border border-slate-200 px-2.5 py-1.5 font-medium text-slate-600 hover:bg-slate-50 disabled:opacity-40 disabled:cursor-not-allowed transition-colors"
+              className="inline-flex items-center gap-1 rounded-lg border border-zinc-700 px-2.5 py-1.5 font-medium text-zinc-300 hover:bg-zinc-800 hover:text-white disabled:opacity-30 disabled:cursor-not-allowed transition-colors"
             >
               <span>ถัดไป</span>
               <ChevronRight className="h-3.5 w-3.5" />
@@ -337,3 +337,4 @@ export default function AmortizationTable({
     </div>
   );
 }
+
