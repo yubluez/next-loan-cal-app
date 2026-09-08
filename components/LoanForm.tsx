@@ -55,7 +55,7 @@ export default function LoanForm({ input, onChange, onReset }: LoanFormProps) {
       <div className="mb-6 flex items-center justify-between border-b border-zinc-800 pb-4">
         <div>
           <h2 className="text-xl font-bold tracking-tight text-white flex items-center gap-2">
-            ระบุข้อมูลสินเชื่อ (Input)
+            ระบุข้อมูลสินเชื่อ
           </h2>
           <p className="mt-1 text-xs text-zinc-400">
             กรอกยอดเงินกู้ อัตราดอกเบี้ย และระยะเวลาผ่อนชำระเพื่อคำนวณค่างวด
